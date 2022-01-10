@@ -44,7 +44,8 @@ class SectionController extends Controller
      */
     public function show($id)
     {
-        //
+        $section = Section::findOrFail($id);
+        return response()->json($section);
     }
 
     /**
@@ -56,7 +57,9 @@ class SectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $section = Section::findOrFail($id);
+        $section->update($request->all());
+        return response('Updated');
     }
 
     /**
@@ -67,6 +70,7 @@ class SectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Section::where('id', $id)->delete();
+        return response('Deleted');
     }
 }
