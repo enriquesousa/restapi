@@ -15,7 +15,13 @@ Route::group([
     'prefix' => 'auth'
 ], function () {
 
+    // p/laravel 8
     Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/refresh', [AuthController::class, 'refresh']);
+    Route::post('/me', [AuthController::class, 'me']);
+
+    // estas rutas funcionan solo en laravel 7
     // Route::post('login', 'AuthController@login');
     // Route::post('logout', 'AuthController@logout');
     // Route::post('refresh', 'AuthController@refresh');
